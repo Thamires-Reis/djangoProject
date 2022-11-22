@@ -1,0 +1,26 @@
+{% load static %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+	body {
+        margin: 2px;
+        padding: 55px 36px;
+        height: 100%;
+        background: #d5dfe7;
+        text-align: center;
+    }
+
+</style>
+
+<h1>{{ question.question_text }}</h1>
+<br>
+<!--Displays the polls results.-->
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+<br>
+<a class ="btn btn-secondary btn-sm mb-3" href ="{% url 'polls:detail' question.id %}">Vote again?</a>
+<br>
+<br>
+<a class ="btn btn-secondary btn-sm mb-3"  href="{% url 'home' %}">Quit Voting</a>

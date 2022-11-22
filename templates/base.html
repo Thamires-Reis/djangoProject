@@ -1,0 +1,27 @@
+<!-- templates/base.html -->
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <header class="theme-light text-center-desktop text-center-mobile">
+
+        <div class="container-text">
+            Hi {{ user.username }}!
+
+        <p></p>
+        </div>
+
+</header>
+  <meta charset="utf-8">
+  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+
+<body>
+  <main>
+    {% block content %}
+
+    {% endblock %}
+  </main>
+</body>
+</html>
