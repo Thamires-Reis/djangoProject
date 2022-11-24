@@ -21,6 +21,7 @@ class IndexView(generic.ListView):
         ).order_by('-pub_date')[:5]
 
 
+# Polls pages queries
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
