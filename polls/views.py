@@ -1,4 +1,5 @@
 # Create your views here.
+from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -11,6 +12,7 @@ class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
+    @transaction.atomic
     def get_queryset(self):
         """
         Return the last five published questions (not including those set to be
